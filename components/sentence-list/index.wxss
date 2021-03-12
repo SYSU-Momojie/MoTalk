@@ -1,0 +1,7 @@
+/* components/sentence-list/index.wxss */
+
+.like-part {
+  display: flex;
+  align-items: center;
+  flex-flow: row-reverse;
+}

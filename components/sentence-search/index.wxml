@@ -1,0 +1,29 @@
+<!--components/mq/share-search/index.wxml-->
+
+<view class="full-width relative">
+  <van-row>
+    <van-col span="4">
+      <van-dropdown-menu>
+        <van-dropdown-item value="{{ labelChosen }}" options="{{ labelOptions }}" />
+      </van-dropdown-menu>
+    </van-col>
+    <van-col span="20">
+      <van-search
+        placeholder="请输入关键词"
+        catchchange="onChange"
+        catchblur="onBlur"
+        catchfocus="onFocus"
+        catchsearch="onSearch"
+        catchclear="onClear"
+        shape="round"
+        value="{{ inputValue }}"
+      />
+    </van-col>
+  </van-row>
+
+  <view class="hint" wx:if="{{ hintList.length > 0 }}">
+    <van-cell-group class="hint-list">
+      <van-cell class="hint-item" wx:for="{{ hintList }}" wx:key="*this" catchclick="handleTap" title="{{ item }}" data-v="{{ item }}"/>
+    </van-cell-group>
+  </view>
+</view>

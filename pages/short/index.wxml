@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="full-width search-part">
+    <sentence-search catchsearch="onSearch"/>
+  </view>
+  <view class="full-width list-part">
+    <sentence-list pageNum="{{ pageNum }}" maxPage="{{ totalPage }}" list = "{{ sentenceList }}" catchpageChange="onPageChange"/>
+  </view>
+</view>

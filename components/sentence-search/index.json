@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-search": "@vant/weapp/search",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu",
+    "van-dropdown-item": "@vant/weapp/dropdown-item",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-row": "@vant/weapp/row",
+    "van-col": "@vant/weapp/col"
+  }
+}

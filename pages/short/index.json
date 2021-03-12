@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "短句",
+  "usingComponents": {
+    "sentence-search": "/components/sentence-search/index",
+    "sentence-list": "/components/sentence-list/index"
+  }
+}

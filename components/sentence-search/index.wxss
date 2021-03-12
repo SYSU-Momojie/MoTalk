@@ -1,0 +1,11 @@
+/* components/sentence-search/index.wxss */
+
+.hint {
+  position: absolute;
+  top: 100rpx;
+  width: 100%;
+}
+
+.hint-list {
+  z-index: 100000;
+}

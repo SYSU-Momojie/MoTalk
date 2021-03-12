@@ -1,0 +1,8 @@
+/**app.wxss**/
+.full-width {
+  width: 100%
+}
+
+.search-part {
+  margin-bottom: 20rpx;
+}

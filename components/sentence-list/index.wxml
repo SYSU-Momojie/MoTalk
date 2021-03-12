@@ -1,0 +1,14 @@
+<!--components/sentence-list/index.wxml-->
+<view class="full-width">
+  <van-cell-group>
+      <van-cell wx:for="{{ list }}" wx:key="id" title="{{ item.content }}" use-label-slot>
+        <view slot="label" class="like-part" catchclick="onlike" data-id="{{ item.id }}">
+          <text class="like-part-number">{{ item.like }}</text>
+          <van-icon name="like-o"/>
+        </view>
+      </van-cell>
+  </van-cell-group>
+
+  <pagination current = "{{ pageNum }}" total = "{{ maxPage }}" 
+    catchchange="onPageChange" />
+</view>
