@@ -27,6 +27,10 @@ Component({
     maxPage: {
       type: Number,
       value: 0
+    },
+    showPage: {
+      type: Boolean,
+      value: false
     }
   },
 

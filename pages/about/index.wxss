@@ -1,1 +1,5 @@
 /* pages/about/index.wxss */
+
+.login-part {
+  text-align: center;
+}

@@ -1,2 +1,9 @@
 <!--pages/about/index.wxml-->
-<text>第一版暂时没有什么东西啦</text>
+<view class="full-width">
+  <view class="login-part" wx:if="{{ !isLogin }}">
+    <van-button type="primary" catchclick="toLogin">登陆</van-button>
+  </view>
+  <van-cell-group title="管理" wx:if="{{ isAdmin }}">
+    <van-cell title="增加句子" link-type="navigateTo" url="/p-admin/pages/edit/index" is-link />
+  </van-cell-group>
+</view>

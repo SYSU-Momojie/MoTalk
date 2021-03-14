@@ -9,6 +9,6 @@
       </van-cell>
   </van-cell-group>
 
-  <pagination current = "{{ pageNum }}" total = "{{ maxPage }}" 
+  <pagination wx:if="{{ showPage }}" current = "{{ pageNum }}" total = "{{ maxPage }}" 
     catchchange="onPageChange" />
 </view>

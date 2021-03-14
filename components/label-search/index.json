@@ -7,7 +7,6 @@
     "van-cell": "@vant/weapp/cell",
     "van-cell-group": "@vant/weapp/cell-group",
     "van-row": "@vant/weapp/row",
-    "van-col": "@vant/weapp/col",
-    "van-field": "@vant/weapp/field"
+    "van-col": "@vant/weapp/col"
   }
 }

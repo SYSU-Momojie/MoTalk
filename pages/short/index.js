@@ -9,10 +9,11 @@ Page({
       totalPage: 1,
       label: '全部',
       content: '',
-      sentenceList: []
+      sentenceList: [],
+      isRandom: true
   },
 
-  onLoad: function(event) {
+  onReady: function(event) {
     this.requestData();
   },
 
@@ -36,10 +37,13 @@ Page({
       content: this.data.content,
       random: false
     };
-    if (param.label === '全部' && param.content === '') {
+    if (param.content === '') {
       param.random = true;
     }
-    console.log(param);
+    // console.log(param);
+    this.setData({
+      isRandom: param.random
+    });
     this.post('sentence/getByPage', param, this.updateAfterRequest.bind(this));
   },
 

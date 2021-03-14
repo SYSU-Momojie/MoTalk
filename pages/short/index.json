@@ -2,6 +2,8 @@
   "navigationBarTitleText": "短句",
   "usingComponents": {
     "sentence-search": "/components/sentence-search/index",
-    "sentence-list": "/components/sentence-list/index"
+    "sentence-list": "/components/sentence-list/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-divider": "@vant/weapp/divider/index"
   }
 }

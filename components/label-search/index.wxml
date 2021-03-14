@@ -1,0 +1,19 @@
+<!--components/mq/share-search/index.wxml-->
+
+<view class="full-width relative">
+  <van-search
+    placeholder="标签"
+    catchchange="onChange"
+    catchblur="onBlur"
+    catchfocus="onFocus"
+    catchclear="onClear"
+    shape="round"
+    value="{{ inputValue }}"
+  />
+
+  <view class="hint" wx:if="{{ hintList.length > 0 }}">
+    <van-cell-group class="hint-list">
+      <van-cell class="hint-item" wx:for="{{ hintList }}" wx:key="*this" catchclick="handleTap" title="{{ item }}" data-v="{{ item }}"/>
+    </van-cell-group>
+  </view>
+</view>

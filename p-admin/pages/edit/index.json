@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "编辑",
+  "usingComponents": {
+    "label-search": "/components/label-search/index",
+    "van-divider": "@vant/weapp/divider",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-field": "@vant/weapp/field",
+    "van-button": "@vant/weapp/button"
+  }
+}

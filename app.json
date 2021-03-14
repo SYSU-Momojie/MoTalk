@@ -1,7 +1,15 @@
 {
   "pages": [
-    "pages/short/index",
-    "pages/about/index"
+    "pages/about/index",
+    "pages/short/index"
+  ],
+  "subpackages": [
+    {
+      "root": "p-admin",
+      "pages": [
+        "pages/edit/index"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "light",

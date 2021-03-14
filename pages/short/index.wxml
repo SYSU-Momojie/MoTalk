@@ -4,6 +4,11 @@
     <sentence-search catchsearch="onSearch"/>
   </view>
   <view class="full-width list-part">
-    <sentence-list pageNum="{{ pageNum }}" maxPage="{{ totalPage }}" list = "{{ sentenceList }}" catchpageChange="onPageChange"/>
+    <sentence-list pageNum="{{ pageNum }}" maxPage="{{ totalPage }}" list = "{{ sentenceList }}" catchpageChange="onPageChange" showPage="{{ !isRandom }}"/>
+
+    <van-divider contentPosition="center" wx:if="{{ isRandom }}">
+      <van-icon name="replay" catchclick="requestData" />
+      <text catchclick="requestData">换一批看看</text>
+    </van-divider>
   </view>
 </view>

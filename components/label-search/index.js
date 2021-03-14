@@ -8,14 +8,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    labelChosen: {
-      type: String,
-      value: ''
-    },
-    labelOptions: {
-      type: Array,
-      value: [{text: '全部', value: ''}]
-    },
     latest: {
       type: Array,
       value: []
@@ -32,25 +24,7 @@ Component({
 
   lifetimes: {
     ready: function () {
-      var data = wx.getStorageSync('allLabels');
-      if (data) {
-        var nChosen = '';
-        for (var i in data) {
-          if (data[i].text === '全部') {
-            nChosen = data[i].value;
-          }
-        }
-        var nOpts = [];
-        for (var i in data) {
-          nOpts.push({text: data.label, value: data.label});
-        }
-        this.setData({
-          labelOptions: nOpts,
-          labelChosen: nChosen
-        });
-      }
-
-      var latest = wx.getStorageSync('searchLatest');
+      var latest = wx.getStorageSync('labelChosenLatest');
       if (latest) {
         this.setData({
           latest
@@ -85,10 +59,11 @@ Component({
         toFind.push(str);
       }
       var nHintList = [];
+      var allLabel = wx.getStorageSync('allLabels');
       for (var i in toFind) {
-        for (var j in this.data.latest) {
-          if (strUtil.ignoreCaseContains(this.data.latest[j], toFind[i])) {
-            nHintList.push(this.data.latest[j]);
+        for (var j in allLabel) {
+          if (strUtil.ignoreCaseContains(allLabel[j].label, toFind[i])) {
+            nHintList.push(allLabel[j].label);
             if (nHintList.length === 5) {
               break;
             }
@@ -115,15 +90,12 @@ Component({
     handleTap: function (event) {
       // console.log(event);
       this.setData({
-        inputValue: event.currentTarget.dataset.v
+        inputValue: ''
       });
-      this.triggerSearch(this.data.inputValue);
+      this.triggerChosen(event.currentTarget.dataset.v);
       this.clearHint();
     },
-    onSearch: function(event) {
-      this.triggerSearch(event.detail);
-    },
-    triggerSearch: function(content) {
+    triggerChosen: function(content) {
       var latest = this.data.latest;
       var index = latest.indexOf(content);
       if (index > -1) {
@@ -137,40 +109,16 @@ Component({
         latest
       });
       wx.setStorage({
-        key: 'searchLatest',
+        key: 'labelChosenLatest',
         data: latest,
       });
-      this.triggerEvent('search', { label: this.data.labelChosen, content: content });
-    },
-    onLabelChange: function(event) {
-      console.log(event);
-      this.setData({
-        labelChosen: event.detail
-      });
-      this.triggerSearch(this.data.inputValue);
+      this.triggerEvent('chosen', content);
     },
     updateAfterRequest: function (list) {
-      // console.log(list);
-      var nOpts = [];
-      var targetValue = '';
-      for (var i in list) {
-        nOpts.push({
-          text: list[i].label, 
-          value: list[i].label
-        });
-        if (list[i].label === '全部') {
-          targetValue = list[i].label;
-        }
-      }
-      this.setData({
-        labelOptions: nOpts,
-        labelChosen: targetValue
-      });
       wx.setStorage({
         key: 'allLabels',
         data: list,
       });
-      
     }
   }
 })

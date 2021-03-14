@@ -4,7 +4,7 @@
   <van-row>
     <van-col span="4">
       <van-dropdown-menu>
-        <van-dropdown-item value="{{ labelChosen }}" options="{{ labelOptions }}" />
+        <van-dropdown-item value="{{ labelChosen }}" options="{{ labelOptions }}" catchchange="onLabelChange"/>
       </van-dropdown-menu>
     </van-col>
     <van-col span="20">

@@ -14,7 +14,7 @@ module.exports = Behavior({
     post: function(api, param, success) {
       var callback = function(resp) {
         console.log(resp);
-        if (resp.errMsg === 'request:ok' && resp.data instanceof Object) {
+        if (resp.errMsg === 'request:ok' && resp.data instanceof Object && resp.statusCode === 200) {
           success(resp.data);
         } else {
           Notify({
@@ -29,6 +29,9 @@ module.exports = Behavior({
         data: param,
         method: 'POST',
         complete: callback.bind(this)
+      };
+      if (getApp().globalData.header !== null) {
+        obj.header = getApp().globalData.header;
       }
       this.showSpin(true);
       wx.request(obj)

@@ -1,0 +1,21 @@
+<!--p-admin/pages/edit/index.wxml-->
+<view class="full-width">
+  <view class="search-part">
+    <label-search catchchosen="onLabelChosen"/>
+  </view>
+
+  <view class="labels-part">
+    <van-tag wx:for="{{ labels }}" wx:key="*this" data-v="{{ item }}"
+    type="primary" round closeable catchclose="deleteLabel">{{ item }}</van-tag>
+    <van-divider />
+  </view>
+
+  <view class="input-part">
+    <van-field type="textarea" autosize model:value="{{ content }}"/>
+  </view>
+
+  <view class="button-part">
+    <van-button type="warning" wx:if="{{ id != '' }}" catchclick="deleteSentence">删除</van-button>
+    <van-button type="primary" catchclick="saveSentence">保存</van-button>
+  </view>
+</view>

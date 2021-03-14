@@ -1,0 +1,10 @@
+/* p-admin/pages/edit/index.wxss */
+
+.labels-part {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.button-part {
+  margin-top: 20rpx;
+}

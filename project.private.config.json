@@ -1,0 +1,22 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "编辑句子",
+          "pathName": "p-admin/pages/edit/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
