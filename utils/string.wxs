@@ -1,0 +1,7 @@
+var replaceEnter = function(str) {
+  return str.replace('/↵/g', '\n');
+};
+
+module.exports = {
+  replaceEnter: replaceEnter
+};

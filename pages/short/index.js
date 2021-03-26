@@ -1,7 +1,8 @@
-const api = require('../../behaviors/api.js')
+const api = require('../../behaviors/api.js');
+const user = require('../../behaviors/user.js');
 
 Page({
-  behaviors: [api],
+  behaviors: [api, user],
 
   data: {
       pageNum: 1,
@@ -77,5 +78,16 @@ Page({
       pageNum: cur
     });
     this.requestData();
+  },
+
+  onClickSentence: function(event) {
+    if (!this.isAdmin()) {
+      return ;
+    }
+    wx.navigateTo({ url: '/p-admin/pages/edit/index?id=' + event.detail });
+  },
+
+  onLikeSentence: function(event) {
+    
   }
 })

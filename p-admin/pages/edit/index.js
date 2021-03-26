@@ -11,61 +11,39 @@ Page({
   data: {
     labels: [],
     content: '',
-    id: ''
+    id: '',
+    like: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(options);
+    if (options.id === null) {
+      this.resetData();
+      return ;
+    }
+    this.post('sentence/getSentenceById', options.id, this.updateAfterGet.bind(this));
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  resetData: function() {
+    this.setData({
+      labels: [],
+      content: '',
+      id: '',
+      like: 0
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  updateAfterGet: function(data) {
+    // console.log(data);
+    this.setData({
+      id: data.id,
+      content: data.content,
+      labels: data.labels,
+      like: data.like
+    });
   },
 
   onLabelChosen: function(event) {
@@ -102,7 +80,8 @@ Page({
     var param = {
       id: this.data.id,
       content: this.data.content,
-      labels: this.data.labels
+      labels: this.data.labels,
+      like: this.data.like
     };
 
     this.post(targetUrl, param, this.afterSave.bind(this))
@@ -116,7 +95,7 @@ Page({
   },
 
   deleteSentence: function() {
-    this.post('sentence/deleteSentence', {id: this.data.id}, this.afterDelete.bind(this))
+    this.post('sentence/deleteSentence', this.data.id, this.afterDelete.bind(this))
   },
 
   afterDelete: function(resp) {

@@ -1,8 +1,13 @@
 <!--components/sentence-list/index.wxml-->
+<wxs src='../../utils/string.wxs' module='str'/>
+
 <view class="full-width">
   <van-cell-group>
-      <van-cell wx:for="{{ list }}" wx:key="id" title="{{ item.content }}" use-label-slot>
-        <view slot="label" class="like-part" catchclick="onlike" data-id="{{ item.id }}">
+      <van-cell wx:for="{{ list }}" wx:key="id" use-label-slot data-id="{{ item.id }}" catchclick="onClickItem">
+        <view slot="title">
+          <text>{{ str.replaceEnter(item.content) }}</text>
+        </view>
+        <view slot="label" class="like-part" catchtap="onlike" data-id="{{ item.id }}">
           <text class="like-part-number">{{ item.like }}</text>
           <van-icon name="like-o"/>
         </view>

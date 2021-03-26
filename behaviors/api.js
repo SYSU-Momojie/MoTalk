@@ -13,7 +13,7 @@ module.exports = Behavior({
   methods: {
     post: function(api, param, success) {
       var callback = function(resp) {
-        console.log(resp);
+        // console.log(resp);
         if (resp.errMsg === 'request:ok' && resp.data instanceof Object && resp.statusCode === 200) {
           success(resp.data);
         } else {

@@ -46,6 +46,14 @@ Component({
   methods: {
     onPageChange: function(event) {
       this.triggerEvent("pageChange", event.detail);
+    },
+
+    onClickItem: function(event) {
+      this.triggerEvent("clickSentence", event.currentTarget.dataset.id);
+    },
+
+    onLike: function(event) {
+      this.triggerEvent("likeSentence", event.currentTarget.dataset.id);
     }
   }
 })
